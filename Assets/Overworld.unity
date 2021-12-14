@@ -2334,6 +2334,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608757095}
   m_CullTransparentMesh: 1
+--- !u!1 &633552129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633552131}
+  - component: {fileID: 633552130}
+  m_Layer: 0
+  m_Name: Tick Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &633552130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633552129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff50f9da7e1c944da1936207ef4c4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TickFrequency: 1
+--- !u!4 &633552131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633552129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.40785503, y: 1.5544562, z: -1.5773726}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &640735102
 GameObject:
   m_ObjectHideFlags: 0
@@ -4894,7 +4938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5056951705168689871, guid: b2f3511f2f65c45428b60588d98440e1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2f3511f2f65c45428b60588d98440e1, type: 3}
@@ -11748,6 +11792,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!198 &1149135887 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5086130329784667123, guid: 6f1aebeb7e9e2f844a6101f396d2115e, type: 3}
+  m_PrefabInstance: {fileID: 527937656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1203449606
 GameObject:
   m_ObjectHideFlags: 0
@@ -17752,6 +17801,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367330682}
   m_CullTransparentMesh: 1
+--- !u!198 &1398055316 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5056951705168689864, guid: b2f3511f2f65c45428b60588d98440e1, type: 3}
+  m_PrefabInstance: {fileID: 967073066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1416055944
 GameObject:
   m_ObjectHideFlags: 0
@@ -17902,6 +17956,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454991434}
   m_CullTransparentMesh: 1
+--- !u!1 &1530770571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1530770573}
+  - component: {fileID: 1530770572}
+  m_Layer: 0
+  m_Name: WeatherManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1530770572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530770571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0322d656aad6c284e8e89f70315a38a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TickBetweenWeather: 10
+  WeatherQueueSize: 5
+  currentWeather: 0
+  RainParticle: {fileID: 1398055316}
+  SnowParticle: {fileID: 1149135887}
+  LightningParticle: {fileID: 1398055316}
+  CloudParticle: {fileID: 1398055316}
+--- !u!4 &1530770573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530770571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1567567468
 GameObject:
   m_ObjectHideFlags: 0
@@ -20509,6 +20613,7 @@ GameObject:
   - component: {fileID: 2033094997}
   - component: {fileID: 2033094996}
   - component: {fileID: 2033094995}
+  - component: {fileID: 2033094999}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -20599,6 +20704,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2033094999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033094994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e587f4c92915fff4aa554d47fdd72f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentTimeText: {fileID: 299789803}
 --- !u!1 &2036757914
 GameObject:
   m_ObjectHideFlags: 0
