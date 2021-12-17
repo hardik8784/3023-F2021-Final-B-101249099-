@@ -2,7 +2,7 @@
  * Full Name: Hardik Dipakbhai Shah
  * Student ID : 101249099
  * Date Modified : December 17,2021
- * File : UIManager.cs
+ * File : TimeManager.cs
  * Description : This is Time Manager Script
  * Revision History : v0.1 > Added Basic required Functionality of a Calender
  *              
@@ -49,8 +49,11 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DateTime.AdvanceMinutes(10);
+        
+
         CurrentTimeBetweenTicks += Time.deltaTime;
-        Debug.Log("Minutes" + minutes );
+        
 
         if (CurrentTimeBetweenTicks >= TickSecondsIncrease)
         {
@@ -141,6 +144,8 @@ public struct DateTime
 
     public void AdvanceMinutes(int SecondsToAdvanceBy)
     {
+        Debug.Log("Day : Hours : Minutes : " + date + ":" + hour + ":" + minutes);
+
         if(minutes + SecondsToAdvanceBy >= 60)
         {
             minutes = (minutes + SecondsToAdvanceBy) % 60;
@@ -150,17 +155,62 @@ public struct DateTime
         else
         {
             minutes += SecondsToAdvanceBy;
-            Debug.Log("Minutes" + minutes);
+          
         }
     }
 
     private void AdvanceHour()
     {
-        //TODO: 
-        //Implement the hour feature
-        //If more then 24 then change the Day
-        //Increment the Hours
+        if((hour + 1) == 24)
+        {
+            hour = 0;
+            AdvanceDay();
+        }
+        else
+        {
+            hour++;
+        }
     }
+
+    private void AdvanceDay()
+    {
+        day++;
+
+        if(day > (Days)7)       
+        {
+            day = (Days)1;
+            totalNumWeeks++;
+        }
+   
+        date++;
+
+        if(date % 29 ==0)                   //As we have 28 days in a month
+        {
+            AdvanceSeason();
+            date = 1;
+        }
+        totalNumDays++;
+    }
+
+    private void AdvanceSeason()
+    {
+        if(Season == Season.Winter)         //If in Last Season
+        {
+            season = Season.Spring;         //Turn Back to First Season of Another(Next) Year
+            AdvanceYear();
+        }
+        else
+        {
+            season++;                       
+        }
+    }
+
+    private void AdvanceYear()
+    {
+        date = 1;                           //Switch back the First date of the First Season
+        year++;
+    }
+
     #endregion
 }
 
