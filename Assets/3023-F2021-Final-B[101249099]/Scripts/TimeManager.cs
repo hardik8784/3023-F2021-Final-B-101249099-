@@ -81,12 +81,15 @@ public struct DateTime
 {
     #region Fields
     private Days day;
+    [SerializeField]
     private int date;
+    [SerializeField]
     private int year;
-
+    [SerializeField]
     private int hour;
+    [SerializeField]
     private int minutes;
-
+    [SerializeField]
     private Season season;
 
     private int totalNumDays;
