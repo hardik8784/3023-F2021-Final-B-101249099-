@@ -1,3 +1,13 @@
+/*
+ * Full Name: Hardik Dipakbhai Shah
+ * Student ID : 101249099
+ * Date Modified : December 17,2021
+ * File : CalendarManager.cs
+ * Description : This is CalendarManager Script
+ * Revision History : v0.1 > Added basic variables and Delegates
+ *              
+ */
+
 
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +19,7 @@ public class CalendarManager : MonoBehaviour
 {
     public List<CalendarPanel> calenderPanels;
     public List<ImportantDates> importantDates;
-    public TextMeshProUGUI seasonText;
+    public TextMeshProUGUI tempCheckerforSeason;
     public TextMeshProUGUI setDescriptionText;
     public static TextMeshProUGUI DescriptionText;
 
@@ -34,9 +44,31 @@ public class CalendarManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        DescriptionText = setDescriptionText;
+        DescriptionText.text = " ";
+        //previousDateTime = TimeManager.DateTime;
+        SortDates();
+        FillPanels((Season)0);
     }
 
+    private void SortDates()
+    {
+        importantDates = importantDates.OrderBy(d => d.ImportantDate.Season).ThenBy(d => d.ImportantDate.Date).ToList();
+    }
+
+    private void FillPanels(Season _season)
+    {
+        tempCheckerforSeason.text = _season.ToString();
+
+        for(int i = 0; i<calenderPanels.Count;i++)
+        {
+            //TODO:
+            //Step 1: Fill Up all the Panels with Dates
+            //Step 2: Fill in the Important Dates
+            //Step 3: Image allocating the Important Dates
+            //Step 4: Highlight on the Date
+        }
+    }
     // Update is called once per frame
     void Update()
     {

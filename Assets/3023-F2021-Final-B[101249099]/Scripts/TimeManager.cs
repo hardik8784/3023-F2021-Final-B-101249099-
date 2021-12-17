@@ -255,7 +255,35 @@ public struct DateTime
 
     #endregion
 
-    
+    #region Start of Season                         
+    //This will return the Date and year of the Season
+    public DateTime StartOfSeason(int season, int year)
+    {
+        return StartOfSeason(season, year);
+    }
+
+    public DateTime StartOfSpring(int year)
+    {
+        return StartOfSeason(0, year);
+    }
+
+    public DateTime StartOfSummer(int year)
+    {
+        return StartOfSeason(1, year);
+    }
+
+    public DateTime StartOfAutumn(int year)
+    {
+        return StartOfSeason(2, year);
+    }
+
+    public DateTime StartOfWinter(int year)
+    {
+        return StartOfSeason(3, year);
+    }
+
+    #endregion
+
 
     #region ToString
 
