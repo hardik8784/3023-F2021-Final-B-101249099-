@@ -1,3 +1,14 @@
+/*
+ * Full Name: Hardik Dipakbhai Shah
+ * Student ID : 101249099
+ * Date Modified : December 14,2021
+ * File : WeatherManager.cs
+ * Description : This is Weather Manager Script
+ * Revision History : v0.1 > Added On TickEffects of the Partical on Basis of the Weather
+ *              
+ */
+
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

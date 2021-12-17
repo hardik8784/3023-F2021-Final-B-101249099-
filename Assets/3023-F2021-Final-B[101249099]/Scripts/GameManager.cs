@@ -1,3 +1,13 @@
+/*
+ * Full Name: Hardik Dipakbhai Shah
+ * Student ID : 101249099
+ * Date Modified : December 14,2021
+ * File : GameManager.cs
+ * Description : This is Game Manager Script
+ * Revision History : v0.1 > Increasing the Time and Updating it
+ *              
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

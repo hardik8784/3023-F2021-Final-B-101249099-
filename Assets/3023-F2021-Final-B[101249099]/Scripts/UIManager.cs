@@ -1,3 +1,12 @@
+/*
+ * Full Name: Hardik Dipakbhai Shah
+ * Student ID : 101249099
+ * Date Modified : December 14,2021
+ * File : UIManager.cs
+ * Description : This is UI Manager Script
+ * Revision History : v0.1 > Added the Delegate, Changing the Updated Time on Screen           
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +32,7 @@ public class UIManager : MonoBehaviour
 
     private void Tick()
     {
-        CurrentTimeText.text = "Tick :" + GameManager.CurrentTick;
+        CurrentTimeText.text = "Time :" + GameManager.CurrentTick;
     }
 
     // Start is called before the first frame update
@@ -35,7 +44,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentTimeText.text = "Time : " + GameManager.CurrentGameTime.ToString().ToUpper();
+        CurrentTimeText.text = "Time : " + GameManager.CurrentGameTime.ToString();
     }
 
     //void WeatherChanged(Weather CurrentWeather, Queue<Weather> WeatherQueue)
