@@ -16,23 +16,35 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI CurrentTimeText;
+    // [SerializeField] private TextMeshProUGUI CurrentTimeText;
+    public TextMeshProUGUI DateText, TimeText, SeasonText, WeekText;
+
+
 
     private void OnEnable()
     {
         //WeatherManager.OnWeatherChange += WeatherChanged;
-        GameManager.OnTick += Tick;
+        // GameManager.OnTick += Tick;
+        TimeManager.OnDateTimeChanged += UpdateDateTime;
     }
     private void OnDisable()
     {
+        TimeManager.OnDateTimeChanged -= UpdateDateTime;        //Subscribe to OnDateTimeChanged Event
         //WeatherManager.OnWeatherChange -= WeatherChanged;
-        GameManager.OnTick -= Tick;
+      //  GameManager.OnTick -= Tick;
     }
 
+    private void UpdateDateTime(DateTime dateTime)              //Passing dateTime into function
+    {
+        DateText.text = dateTime.Day.ToString() + " " + dateTime.Date.ToString("D2") + "/" + dateTime.Year.ToString("D2") ;        
+        TimeText.text = dateTime.TimeToString();
+        SeasonText.text = dateTime.Season.ToString();
+        WeekText.text = "Week : " + dateTime.CurrentWeek;
+    }
 
     private void Tick()
     {
-        CurrentTimeText.text = "Time :" + GameManager.CurrentTick;
+     //   CurrentTimeText.text = "Time :" + GameManager.CurrentTick;
     }
 
     // Start is called before the first frame update
@@ -44,7 +56,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentTimeText.text = "Time : " + GameManager.CurrentGameTime.ToString();
+    //    CurrentTimeText.text = "Time : " + GameManager.CurrentGameTime.ToString();
     }
 
     //void WeatherChanged(Weather CurrentWeather, Queue<Weather> WeatherQueue)

@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         currentGameTime += Time.deltaTime;
 
-        if(currentGameTime >= LastTickTime + TickFrequency)
+        if (currentGameTime >= LastTickTime + TickFrequency)
         {
             LastTickTime = currentGameTime;
             OnTick?.Invoke();

@@ -29,8 +29,8 @@ public class TimeManager : MonoBehaviour
     private DateTime DateTime;                  
 
     [Header("Tick Settings")]
-    public int TickSecondsIncrease = 10;        //EveryTick instead of 1 seconds, increase it by 10, Developer can change this.
-    public float TimeBetweenTicks = 1;          //Time between Tick can be change by Developer
+    public int TickMinutesIncreased = 10 ;        //EveryTick instead of 1 seconds, increase it by 10, Developer can change this.
+    public float TimeBetweenTicks = 1;           //Time between Tick can be change by Developer
     private float CurrentTimeBetweenTicks = 0;      
 
     public static UnityAction<DateTime> OnDateTimeChanged;
@@ -38,6 +38,7 @@ public class TimeManager : MonoBehaviour
     private void Awake()
     {
         DateTime = new DateTime(dateInMonth, season - 1, year, hour, minutes * 10);
+    
     }
 
     // Start is called before the first frame update
@@ -49,13 +50,13 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DateTime.AdvanceMinutes(10);
+        //DateTime.AdvanceMinutes(10);
         
 
         CurrentTimeBetweenTicks += Time.deltaTime;
         
 
-        if (CurrentTimeBetweenTicks >= TickSecondsIncrease)
+        if (CurrentTimeBetweenTicks >= TimeBetweenTicks)
         {
             CurrentTimeBetweenTicks = 0;
             Tick();
@@ -69,7 +70,7 @@ public class TimeManager : MonoBehaviour
 
     void AdvanceTime()
     {
-        DateTime.AdvanceMinutes(TickSecondsIncrease);
+        DateTime.AdvanceMinutes(TickMinutesIncreased);
         OnDateTimeChanged?.Invoke(DateTime);
     }
   
@@ -111,14 +112,14 @@ public struct DateTime
     /// so, for the CurrentWeek we can find the TotalNumber of Week % Total week in year 
     /// If we found % is 0 then it will be 16 weeks otherwise the answer
     /// </summary>
-    public int CurrentWeek => TotalNumWeeks % 16 == 0 ? 16 : TotalNumWeeks % 16;
+    public int CurrentWeek => totalNumWeeks % 16 == 0 ? 16 : totalNumWeeks % 16;
     #endregion
 
     #region Constructors
     public DateTime(int date, int season, int year, int hour, int minutes)
     {
         this.day = (Days)(date % 7);
-        if(day ==0)  day = (Days)7;
+        if (day == 0) day = (Days)7;
         this.date = date;
         this.season = (Season)season;
         this.year = year;
@@ -133,7 +134,7 @@ public struct DateTime
         // let's say we are in 2nd Season 4th Day
         // assume it's first year
         // so TotalNumber of Day  = 4 + (28 * (2)) + ( 112 * (1-1)) => 60 Days!!!
-        totalNumDays = date + (28 * (int)this.season) + (112 * ( year -1));
+        totalNumDays = date + (28 * (int)this.season) + (112 * (year - 1));
 
 
         totalNumWeeks = 1 + totalNumDays / 7;
@@ -144,24 +145,24 @@ public struct DateTime
 
     public void AdvanceMinutes(int SecondsToAdvanceBy)
     {
-        Debug.Log("Day : Hours : Minutes : " + date + ":" + hour + ":" + minutes);
+        //Debug.Log("Day : Hours : Minutes : " + date + ":" + hour + ":" + minutes);
 
-        if(minutes + SecondsToAdvanceBy >= 60)
+        if (minutes + SecondsToAdvanceBy >= 60)
         {
             minutes = (minutes + SecondsToAdvanceBy) % 60;
             AdvanceHour();
-            
+
         }
         else
         {
             minutes += SecondsToAdvanceBy;
-          
+
         }
     }
 
     private void AdvanceHour()
     {
-        if((hour + 1) == 24)
+        if ((hour + 1) == 24)
         {
             hour = 0;
             AdvanceDay();
@@ -176,15 +177,15 @@ public struct DateTime
     {
         day++;
 
-        if(day > (Days)7)       
+        if (day > (Days)7)
         {
             day = (Days)1;
             totalNumWeeks++;
         }
-   
+
         date++;
 
-        if(date % 29 ==0)                   //As we have 28 days in a month
+        if (date % 29 == 0)                   //As we have 28 days in a month
         {
             AdvanceSeason();
             date = 1;
@@ -194,14 +195,14 @@ public struct DateTime
 
     private void AdvanceSeason()
     {
-        if(Season == Season.Winter)         //If in Last Season
+        if (Season == Season.Winter)         //If in Last Season
         {
             season = Season.Spring;         //Turn Back to First Season of Another(Next) Year
             AdvanceYear();
         }
         else
         {
-            season++;                       
+            season++;
         }
     }
 
@@ -210,23 +211,99 @@ public struct DateTime
         date = 1;                           //Switch back the First date of the First Season
         year++;
     }
+    #endregion
 
+    #region Bool Checks
+
+    public bool isNight()
+    {
+        return hour > 18 || hour < 6;       //If Time is 6 PM || 6 AM
+    }
+
+    public bool isMorning()
+    {
+        return hour >= 6 && hour <= 12;     // If Time is > 6 AM && < 12 PM
+    }
+    public bool isAfternoon()
+    {
+        return hour > 12 && hour < 18;      //If Time is >12 PM && < 6 PM
+    }
+
+    public bool isWeekend()
+    {
+        return day > Days.Fri ? true : false;
+    }
+
+    public bool isParticularDay(Days _day)
+    {
+        return day == _day;
+    }
+
+    #endregion
+    #region Important Dates
+
+    public DateTime NewYearDay(int year)
+    {
+        if (year == 0)
+            year = 1;
+        //Debug.Log("New Year Day Arrived");
+        return new DateTime(1, 0, year, 0, 0);
+    }
+
+    #endregion
+
+    
+
+    #region ToString
+
+    public string TimeToString()
+    {
+        int AdjustedHour = 0;
+
+        if(hour == 0)
+        {
+            AdjustedHour = 12;
+        }
+        else if(hour >= 13)
+        {
+            AdjustedHour = hour - 12;
+        }
+        else
+        {
+            AdjustedHour = hour;
+        }
+
+        string AMPM = hour == 0 || hour < 12 ? "AM" : "PM";
+
+        return AdjustedHour.ToString() + " : " + minutes.ToString("D2") + "   " + AMPM;
+
+    }
+
+   
     #endregion
 }
 
-    [System.Serializable]
+[System.Serializable]
     public enum Days
     {
+        NULL = 0,
+        Mon = 1,
+        Tue = 2,
+        Wed = 3,
+        Thu = 4,
+        Fri = 5,
+        Sat = 6,
+        Sun = 7
 
     }
 
     [System.Serializable]
     public enum Season
     {
-    Spring = 0,
-    Summer = 1,
-    Autumn = 2,
-    Winter =3
+        Spring = 0,
+        Summer = 1,
+        Autumn = 2,
+        Winter =3
     }
 
 

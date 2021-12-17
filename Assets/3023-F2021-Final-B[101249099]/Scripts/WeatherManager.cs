@@ -59,7 +59,7 @@ public class WeatherManager : MonoBehaviour
     {
         CurrentWeatherTick++;
 
-        if(CurrentWeatherTick >= TickBetweenWeather)
+        if (CurrentWeatherTick >= TickBetweenWeather)
         {
             CurrentWeatherTick = 0;
             ChangeWeather();
@@ -135,16 +135,16 @@ public class WeatherManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
 
 public enum Weather
-{ 
+{
     Sunny = 0,
     Cloudy = 1,
     Rain = 2,
-    Lightning=3,
-    Snow =4,
+    Lightning = 3,
+    Snow = 4,
     WEATHER_MAX = Snow
 }
