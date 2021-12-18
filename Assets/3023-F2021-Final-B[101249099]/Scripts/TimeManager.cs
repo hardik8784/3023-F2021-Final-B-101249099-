@@ -29,7 +29,10 @@ public class TimeManager : MonoBehaviour
     public DateTime DateTime;                  
 
     [Header("Tick Settings")]
+    [Range(1.0f, 100.0f)]
     public int TickMinutesIncreased = 10 ;        //EveryTick instead of 1 seconds, increase it by 10, Developer can change this.
+    
+    [Range(0.00000001f,1.0f)]
     public float TimeBetweenTicks = 1;           //Time between Tick can be change by Developer
     private float CurrentTimeBetweenTicks = 0;      
 

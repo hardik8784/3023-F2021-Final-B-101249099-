@@ -1128,6 +1128,7 @@ Transform:
   - {fileID: 1326543747247104645}
   - {fileID: 5056951704504166372}
   - {fileID: 3590223300366575508}
+  - {fileID: 6802332082790874464}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2179,6 +2180,8 @@ MonoBehaviour:
   importantDates:
   - {fileID: 11400000, guid: 8b77a13e7533ca846b5471f37c5a8bc7, type: 2}
   - {fileID: 11400000, guid: bc29feb5f3c8865458926a63841a310f, type: 2}
+  - {fileID: 11400000, guid: 078724d8485d717479d1253d2fa3b315, type: 2}
+  - {fileID: 11400000, guid: 6b7a39e4f095f8049a596696395cadca, type: 2}
   seasonText: {fileID: 412170911}
   setDescriptionText: {fileID: 636934339}
   _TimeManagerRefrence: {fileID: 1419286935}
@@ -3737,7 +3740,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 1000, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &636934339
 MonoBehaviour:
@@ -3822,7 +3825,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 18.415344, y: 0, z: 15.960052, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -20547,7 +20550,7 @@ MonoBehaviour:
   currentWeather: 0
   RainParticle: {fileID: 5056951704504166370}
   SnowParticle: {fileID: 5086130330173209483}
-  LightningParticle: {fileID: 5056951704504166370}
+  LightningParticle: {fileID: 764478244937507950}
   CloudParticle: {fileID: 7290849531037728410}
 --- !u!4 &1530770573
 Transform:
@@ -29333,6 +29336,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3b374f1cd176602409fc17955e41567f, type: 3}
   soundSource: {fileID: 3488064683508296886}
   pitchVariance: 0.2
+--- !u!198 &764478244937507950 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2988435876845244491, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+  m_PrefabInstance: {fileID: 2585900103091319845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1326543747247104645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8885229958344147920, guid: 8225dee447da5db4ab156833d195602b, type: 3}
@@ -29540,6 +29548,63 @@ Transform:
   m_Father: {fileID: 2718115282367250605}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2585900103091319845
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 151850298}
+    m_Modifications:
+    - target: {fileID: 4582088605826418516, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_Name
+      value: Blue Snow
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.011557102
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.051898
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.9994671
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
 --- !u!1 &2718115282367250592
 GameObject:
   m_ObjectHideFlags: 0
@@ -29929,6 +29994,11 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!4 &6802332082790874464 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9044435917956794693, guid: 7b94fa7b26c0fa043a0ecf7ccb330712, type: 3}
+  m_PrefabInstance: {fileID: 2585900103091319845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7106971404963067970
 Transform:
   m_ObjectHideFlags: 0
