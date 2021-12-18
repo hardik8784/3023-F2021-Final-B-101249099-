@@ -76,6 +76,26 @@ public class CalendarManager : MonoBehaviour
         }
     }
 
+    public void OnNextSeason()
+    {
+        currentSeasonView += 1;
+        if (currentSeasonView > 3)
+        {
+            currentSeasonView = 0;
+        }
+        FillPanels((Season)currentSeasonView);
+    }
+
+    public void OnPreviousSeason()
+    {
+        currentSeasonView -= 1;
+        if (currentSeasonView < 0)
+        {
+            currentSeasonView = 3;
+        }
+        FillPanels((Season)currentSeasonView);
+    }
+
     // Update is called once per frame
     void Update()
     {
