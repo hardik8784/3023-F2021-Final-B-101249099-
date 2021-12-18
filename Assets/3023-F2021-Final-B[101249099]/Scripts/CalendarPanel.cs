@@ -24,7 +24,6 @@ public class CalendarPanel : MonoBehaviour
     public ImportantDates DateTime;
     public TextMeshProUGUI DateText;
     public Image panelImage;
-   
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +37,11 @@ public class CalendarPanel : MonoBehaviour
         
     }
 
-    public void AssignImportantDate(ImportantDates date)
+    public void AssignImportantDate(ImportantDates importantdate)
     {
-
+        DateTime = importantdate;
+        panelImage.sprite = DateTime.thumbnail;
+        panelImage.color = Color.white;
     }
     
 
