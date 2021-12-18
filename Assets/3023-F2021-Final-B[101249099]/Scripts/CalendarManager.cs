@@ -19,7 +19,7 @@ public class CalendarManager : MonoBehaviour
 {
     public List<CalendarPanel> calenderPanels;
     public List<ImportantDates> importantDates;
-    public TextMeshProUGUI tempCheckerforSeason;
+    public TextMeshProUGUI seasonText;
     public TextMeshProUGUI setDescriptionText;
     public static TextMeshProUGUI DescriptionText;
 
@@ -61,12 +61,19 @@ public class CalendarManager : MonoBehaviour
 
     private void FillPanels(Season _season)
     {
-        tempCheckerforSeason.text = _season.ToString();
+        seasonText.text = _season.ToString();
 
         for(int i = 0; i < calenderPanels.Count ; i++)
         {
             calenderPanels[i].SetUpDate((i + 1).ToString());
 
+            foreach(var date in importantDates)
+            {
+                if((i+1) == date.ImportantDate.Date && date.ImportantDate.Season == _season)
+                {
+                    calenderPanels[i].AssignImportantDate(date);
+                }
+            }
             //}
             //TODO:
             //Step 1: Input every seaaon with button press

@@ -21,7 +21,10 @@ using TMPro;
 
 public class CalendarPanel : MonoBehaviour
 {
+    public ImportantDates DateTime;
     public TextMeshProUGUI DateText;
+    public Image panelImage;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +38,17 @@ public class CalendarPanel : MonoBehaviour
         
     }
 
+    public void AssignImportantDate(ImportantDates date)
+    {
+
+    }
+    
+
     public void SetUpDate(string date)
     {
-        //DateTime = null;
         DateText.text = date;
+        DateTime = null;
+        panelImage.sprite = null;
+        panelImage.color = Color.clear;
     }
 }

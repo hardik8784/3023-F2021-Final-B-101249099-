@@ -2143,8 +2143,10 @@ MonoBehaviour:
   - {fileID: 1477237162}
   - {fileID: 1537753805}
   - {fileID: 275137789}
-  importantDates: []
-  tempCheckerforSeason: {fileID: 412170911}
+  importantDates:
+  - {fileID: 11400000, guid: 8b77a13e7533ca846b5471f37c5a8bc7, type: 2}
+  - {fileID: 11400000, guid: bc29feb5f3c8865458926a63841a310f, type: 2}
+  seasonText: {fileID: 412170911}
   setDescriptionText: {fileID: 636934339}
   _TimeManagerRefrence: {fileID: 1419286935}
 --- !u!1001 &377361675
