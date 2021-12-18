@@ -16,3 +16,11 @@ World tile set - https://opengameart.org/content/zelda-like-tilesets-and-sprites
 Overworld music by Juhani Junkala - https://juhanijunkala.com/
 Various 8-bit sfx by Joss using JSFXR https://sfxr.me/
 Bells 369506__selector__sleigh-bells-hit by Selector - https://freesound.org/people/Selector/sounds/369506/
+
+Refrences:
+
+https://www.youtube.com/watch?v=DPz8GxWq7P8&list=PL-hj540P5Q1goVBxDliKt0ZSqD2_awKOA&index=1
+
+https://www.youtube.com/watch?v=wTH5iwO4n0s&list=PL-hj540P5Q1goVBxDliKt0ZSqD2_awKOA&index=3
+
+https://www.youtube.com/watch?v=i4tGtN4HhuU&list=PL-hj540P5Q1goVBxDliKt0ZSqD2_awKOA&index=4
