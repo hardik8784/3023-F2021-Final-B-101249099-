@@ -244,6 +244,7 @@ public struct DateTime
     }
 
     #endregion
+
     #region Important Dates
 
     public DateTime NewYearDay(int year)
@@ -284,7 +285,6 @@ public struct DateTime
     }
 
     #endregion
-
 
     #region ToString
 
