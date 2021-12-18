@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956138167243dc84ab61045149afc13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DateText: {fileID: 3134818648743789239}
 --- !u!1 &2297877930175798847
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +102,7 @@ GameObject:
   - component: {fileID: 2138656926160444360}
   - component: {fileID: 3134818648743789239}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Date_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

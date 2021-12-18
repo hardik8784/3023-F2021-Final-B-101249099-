@@ -26,7 +26,7 @@ public class TimeManager : MonoBehaviour
     public int hour;                            //There is 24 Hours in a Day
     [Range(0, 6)]                               
     public int minutes;                         // We will multiplay this with 10 so putting 0 to 6 here, to speed up the time, Developer can change it from Editor
-    private DateTime DateTime;                  
+    public DateTime DateTime;                  
 
     [Header("Tick Settings")]
     public int TickMinutesIncreased = 10 ;        //EveryTick instead of 1 seconds, increase it by 10, Developer can change this.
@@ -34,6 +34,7 @@ public class TimeManager : MonoBehaviour
     private float CurrentTimeBetweenTicks = 0;      
 
     public static UnityAction<DateTime> OnDateTimeChanged;
+    
 
     private void Awake()
     {
@@ -131,7 +132,7 @@ public struct DateTime
         this.minutes = minutes;
 
         // To Calculate Total Number of Days 
-        // We have to first find the date
+        // We have to first find the DateText
         // we have 28 days in a month and 4 season
         // For a Calender Year it will be 112 Days in total(28 *4 = 112)
         // let's say we are in 2nd Season 4th Day
@@ -148,7 +149,7 @@ public struct DateTime
 
     public void AdvanceMinutes(int SecondsToAdvanceBy)
     {
-        //Debug.Log("Day : Hours : Minutes : " + date + ":" + hour + ":" + minutes);
+        //Debug.Log("Day : Hours : Minutes : " + DateText + ":" + hour + ":" + minutes);
 
         if (minutes + SecondsToAdvanceBy >= 60)
         {
@@ -211,7 +212,7 @@ public struct DateTime
 
     private void AdvanceYear()
     {
-        date = 1;                           //Switch back the First date of the First Season
+        date = 1;                           //Switch back the First DateText of the First Season
         year++;
     }
     #endregion

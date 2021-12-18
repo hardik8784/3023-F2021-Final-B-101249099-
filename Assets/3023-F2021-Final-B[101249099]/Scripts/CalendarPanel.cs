@@ -11,10 +11,18 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class CalendarPanel : MonoBehaviour
 {
+    public TextMeshProUGUI DateText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +33,11 @@ public class CalendarPanel : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetUpDate(string date)
+    {
+        //DateTime = null;
+        DateText.text = date;
     }
 }
