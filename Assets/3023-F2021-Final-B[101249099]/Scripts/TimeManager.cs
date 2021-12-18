@@ -51,7 +51,7 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //DateTime.AdvanceMinutes(10);
+        //importantdate.AdvanceMinutes(10);
         
 
         CurrentTimeBetweenTicks += Time.deltaTime;

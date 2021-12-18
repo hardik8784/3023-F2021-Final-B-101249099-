@@ -19,9 +19,9 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class CalendarPanel : MonoBehaviour
+public class CalendarPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public ImportantDates DateTime;
+    public ImportantDates importantdate;
     public TextMeshProUGUI DateText;
     public Image panelImage;
 
@@ -39,8 +39,8 @@ public class CalendarPanel : MonoBehaviour
 
     public void AssignImportantDate(ImportantDates importantdate)
     {
-        DateTime = importantdate;
-        panelImage.sprite = DateTime.thumbnail;
+        this.importantdate = importantdate;
+        panelImage.sprite = this.importantdate.thumbnail;
         panelImage.color = Color.white;
     }
     
@@ -48,8 +48,25 @@ public class CalendarPanel : MonoBehaviour
     public void SetUpDate(string date)
     {
         DateText.text = date;
-        DateTime = null;
+        importantdate = null;
         panelImage.sprite = null;
         panelImage.color = Color.clear;
     }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        CalendarManager.DescriptionText.text = "";
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(importantdate != null)
+        {
+            CalendarManager.DescriptionText.text = importantdate.Description;
+        }
+        else
+        {
+            CalendarManager.DescriptionText.text = "";
+        }
+    }    
 }
